@@ -59,6 +59,7 @@ export default class DialogAdapter extends EventEmitter {
     this._lastRecvConnectionState = null;
     this._closed = true;
     this.scene = document.querySelector("a-scene");
+    this._dialogServerParams = {};
   }
 
   get serverUrl() {
@@ -214,7 +215,7 @@ export default class DialogAdapter extends EventEmitter {
         await this.iceRestart(this._sendTransport);
       } else {
         // If the transport is closed but the signaling is connected, we try to recreate
-        const { host, port, turn } = await window.APP.hubChannel.getHost();
+        const { host, port, turn } = this._dialogServerParams;
         const iceServers = this.getIceServers(host, port, turn);
         await this.recreateSendTransport(iceServers);
       }
@@ -259,7 +260,7 @@ export default class DialogAdapter extends EventEmitter {
         await this.iceRestart(this._recvTransport);
       } else {
         // If the transport is closed but the signaling is connected, we try to recreate
-        const { host, port, turn } = await window.APP.hubChannel.getHost();
+        const { host, port, turn } = this._dialogServerParams;
         const iceServers = this.getIceServers(host, port, turn);
         await this.recreateRecvTransport(iceServers);
       }
@@ -753,7 +754,8 @@ export default class DialogAdapter extends EventEmitter {
 
     await this._mediasoupDevice.load({ routerRtpCapabilities });
 
-    const { host, port, turn } = await window.APP.hubChannel.getHost();
+    this._dialogServerParams = await window.APP.hubChannel.getHost();
+    const { host, port, turn } = this._dialogServerParams;
     const iceServers = this.getIceServers(host, port, turn);
 
     await this.createSendTransport(iceServers);
