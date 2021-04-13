@@ -285,7 +285,8 @@ module.exports = async (env, argv) => {
           { from: /^\/discord/, to: "/discord.html" },
           { from: /^\/cloud/, to: "/cloud.html" },
           { from: /^\/verify/, to: "/verify.html" },
-          { from: /^\/whats-new/, to: "/whats-new.html" }
+          { from: /^\/whats-new/, to: "/whats-new.html" },
+          { from: /^\/link/, to: "/link.html" }
         ]
       },
       before: function(app) {

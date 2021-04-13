@@ -801,7 +801,7 @@ class UIRoot extends Component {
               this.handleForceEntry();
             }
           }}
-          showEnterOnDevice={!this.state.waitingOnAudio && !this.props.entryDisallowed && !isMobileVR}
+          showEnterOnDevice={false}
           onEnterOnDevice={() => this.attemptLink()}
           showSpectate={!this.state.waitingOnAudio && !this.props.entryDisallowed}
           onSpectate={() => this.setState({ watching: true })}
@@ -1062,7 +1062,7 @@ class UIRoot extends Component {
 
     const streaming = this.state.isStreaming;
 
-    const showObjectList = enteredOrWatching;
+    const showObjectList = false;
 
     const streamer = getCurrentStreamer();
     const streamerName = streamer && streamer.displayName;
@@ -1113,22 +1113,8 @@ class UIRoot extends Component {
             onClick: () => this.setSidebar("profile")
           },
           {
-            id: "favorite-rooms",
-            label: <FormattedMessage id="more-menu.favorite-rooms" defaultMessage="Favorite Rooms" />,
-            icon: FavoritesIcon,
-            onClick: () =>
-              this.props.performConditionalSignIn(
-                () => this.props.hubChannel.signedIn,
-                () => {
-                  showFullScreenIfAvailable();
-                  this.props.mediaSearchStore.sourceNavigateWithNoNav("favorites", "use");
-                },
-                SignInMessages.favoriteRooms
-              )
-          },
-          {
             id: "preferences",
-            label: "Preferences",
+            label: <FormattedMessage id="preferences" defaultMessage="Preferences" />,
             icon: SettingsIcon,
             onClick: () => this.setState({ showPrefs: true })
           }
@@ -1151,19 +1137,6 @@ class UIRoot extends Component {
               icon: InviteIcon,
               onClick: () => this.props.scene.emit("action_invite")
             },
-          this.isFavorited()
-            ? {
-                id: "unfavorite-room",
-                label: <FormattedMessage id="more-menu.unfavorite-room" defaultMessage="Unfavorite Room" />,
-                icon: StarIcon,
-                onClick: () => this.toggleFavorited()
-              }
-            : {
-                id: "favorite-room",
-                label: <FormattedMessage id="more-menu.favorite-room" defaultMessage="Favorite Room" />,
-                icon: StarOutlineIcon,
-                onClick: () => this.toggleFavorited()
-              },
           isModerator &&
             entered && {
               id: "streamer-mode",

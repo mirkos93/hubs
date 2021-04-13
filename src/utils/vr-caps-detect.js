@@ -137,7 +137,7 @@ export async function getAvailableVREntryTypes() {
     generic = true;
   }
 
-  return { screen, generic, gearvr, daydream, cardboard, safari };
+  return { screen: VR_DEVICE_AVAILABILITY.no, generic: VR_DEVICE_AVAILABILITY.no, gearvr: VR_DEVICE_AVAILABILITY.no, daydream: VR_DEVICE_AVAILABILITY.no, cardboard: VR_DEVICE_AVAILABILITY.no, safari: VR_DEVICE_AVAILABILITY.no };
 }
 
 export const ONLY_SCREEN_AVAILABLE = {
