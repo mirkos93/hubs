@@ -91,20 +91,21 @@ export function MediaBrowser({
       }
       headerRight={headerRight}
     >
-      {mediaSources && (
-        <div className={styles.buttonNav}>
-          {mediaSources.map(source => (
-            <Button
-              sm
-              key={source}
-              preset={selectedSource === source ? "primary" : "transparent"}
-              onClick={() => onSelectSource(source)}
-            >
-              {intl.formatMessage(navTitleMessages[source])}
-            </Button>
-          ))}
-        </div>
-      )}
+      {mediaSources &&
+        selectedSource !== "avatars" && (
+          <div className={styles.buttonNav}>
+            {mediaSources.map(source => (
+              <Button
+                sm
+                key={source}
+                preset={selectedSource === source ? "primary" : "transparent"}
+                onClick={() => onSelectSource(source)}
+              >
+                {intl.formatMessage(navTitleMessages[source])}
+              </Button>
+            ))}
+          </div>
+        )}
       {facets && (
         <div className={classNames(styles.buttonNav, styles.facetsNav)}>
           {facets.map((facet, i) => (

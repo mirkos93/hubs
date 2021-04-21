@@ -54,14 +54,14 @@ export function ObjectMenu({
             <IconButton className={styles.closeButton} onClick={onClose}>
               <CloseIcon width={16} height={16} />
             </IconButton>
-            <h5>{title}</h5>
-            <IconButton className={styles.lightsHeaderButton} onClick={onToggleLights}>
+            {/*<h5>{title}</h5>*/}
+            {/*<IconButton className={styles.lightsHeaderButton} onClick={onToggleLights}>
               {lightsEnabled ? (
                 <LightbulbOutlineIcon title="Turn Lights Off" width={16} height={16} />
               ) : (
                 <LightbulbIcon title="Turn Lights On" width={16} height={16} />
               )}
-            </IconButton>
+            </IconButton>*/}
           </div>
           <div className={styles.menu}>{joinChildren(children, () => <div className={styles.separator} />)}</div>
         </div>

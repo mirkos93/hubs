@@ -65,12 +65,12 @@ const DEFAULT_FACETS = {
     { text: "Transport", params: { filter: "transport" } }
   ],
   avatars: [
-    { text: "Featured", params: { filter: "featured" } },
-    { text: "My Avatars", params: { filter: "my-avatars" } },
-    { text: "Newest", params: { filter: "" } }
+    { text: "In Evidenza", params: { filter: "featured" } },
+    { text: "I miei avatars", params: { filter: "my-avatars" } },
+    { text: "Nuovi", params: { filter: "" } }
   ],
   favorites: [],
-  scenes: [{ text: "Featured", params: { filter: "featured" } }, { text: "My Scenes", params: { filter: "my-scenes" } }]
+  scenes: [{ text: "In Evidenza", params: { filter: "featured" } }, { text: "Le mie scene", params: { filter: "my-scenes" } }]
 };
 
 const poweredByMessages = defineMessages({
@@ -481,7 +481,8 @@ class MediaBrowserContainer extends Component {
         }
         searchDescription={searchDescription}
         headerRight={
-          showCustomOption && (
+          showCustomOption &&
+          urlSource !== "avatars" && (
             <IconButton lg onClick={() => handleCustomClicked(urlSource)}>
               {["scenes", "avatars"].includes(urlSource) ? <LinkIcon /> : <UploadIcon />}
               <p>{intl.formatMessage(customObjectMessages[customObjectType])}</p>
@@ -503,13 +504,6 @@ class MediaBrowserContainer extends Component {
         entries.length > 0 ||
         !showEmptyStringOnNoResult ? (
           <>
-            {urlSource === "avatars" && (
-              <CreateTile
-                type="avatar"
-                onClick={this.onCreateAvatar}
-                label={<FormattedMessage id="media-browser.create-avatar" defaultMessage="Create Avatar" />}
-              />
-            )}
             {urlSource === "scenes" &&
               configs.feature("enable_spoke") && (
                 <CreateTile

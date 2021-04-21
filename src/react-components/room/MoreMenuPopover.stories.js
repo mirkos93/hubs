@@ -22,13 +22,13 @@ export default {
 const menu = [
   {
     id: "user",
-    label: "You",
+    label: "Tu",
     items: [
       { id: "user-profile", label: "Change Name & Avatar", icon: AvatarIcon },
       { id: "favorite-room", label: "Favorite Room", icon: StarOutlineIcon },
       { id: "preferences", label: "Preferences", icon: SettingsIcon }
     ]
-  },
+  } /*
   {
     id: "room",
     label: "Room",
@@ -37,7 +37,7 @@ const menu = [
       { id: "change-scene", label: "Change Scene", icon: SceneIcon },
       { id: "camera-mode", label: "Enter Camera Mode", icon: CameraIcon }
     ]
-  },
+  },*/,
   {
     id: "support",
     label: "Support",

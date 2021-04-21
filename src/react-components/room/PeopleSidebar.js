@@ -83,7 +83,7 @@ function getPresenceMessage(presence, intl) {
 function getPersonName(person, intl) {
   const you = intl.formatMessage({
     id: "people-sidebar.person-name.you",
-    defaultMessage: "You"
+    defaultMessage: "Tu"
   });
 
   return person.profile.displayName + (person.isMe ? ` (${you})` : "");

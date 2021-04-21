@@ -8,7 +8,6 @@ import { useAccessibleOutlineStyle } from "../input/useAccessibleOutlineStyle";
 export function PageContainer({ children, ...rest }) {
   const auth = useContext(AuthContext);
   useAccessibleOutlineStyle();
-
   return (
     <Page
       appLogo={configs.image("logo")}

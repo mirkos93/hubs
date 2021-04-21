@@ -48,12 +48,12 @@ const FACETS = {
     { text: "Transport", params: { filter: "transport" } }
   ],
   avatars: [
-    { text: "Featured", params: { filter: "featured" } },
-    { text: "My Avatars", params: { filter: "my-avatars" } },
-    { text: "Newest", params: { filter: "" } }
+    { text: "In Evidenza", params: { filter: "featured" } },
+    { text: "I miei avatars", params: { filter: "my-avatars" } },
+    { text: "Nuovi", params: { filter: "" } }
   ],
   favorites: [],
-  scenes: [{ text: "Featured", params: { filter: "featured" } }, { text: "My Scenes", params: { filter: "my-scenes" } }]
+  scenes: [{ text: "In Evidenza", params: { filter: "featured" } }, { text: "My Scenes", params: { filter: "my-scenes" } }]
 };
 
 const room = {

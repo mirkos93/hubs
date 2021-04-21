@@ -59,14 +59,14 @@ PlayerMenuItems.propTypes = {
 };
 
 function ObjectMenuItems({ hubChannel, scene, activeObject, deselectObject, onGoToObject }) {
-  const { canPin, isPinned, togglePinned } = usePinObject(hubChannel, scene, activeObject);
+  /*const { canPin, isPinned, togglePinned } = usePinObject(hubChannel, scene, activeObject);
   const { canRemoveObject, removeObject } = useRemoveObject(hubChannel, scene, activeObject);
-  const { canGoTo, goToSelectedObject } = useGoToSelectedObject(scene, activeObject);
+  const { canGoTo, goToSelectedObject } = useGoToSelectedObject(scene, activeObject);*/
   const url = getObjectUrl(activeObject);
 
   return (
     <>
-      <ObjectMenuButton disabled={!canPin} onClick={togglePinned}>
+      {/*<ObjectMenuButton disabled={!canPin} onClick={togglePinned}>
         <PinIcon />
         <span>
           {isPinned ? (
@@ -75,7 +75,7 @@ function ObjectMenuItems({ hubChannel, scene, activeObject, deselectObject, onGo
             <FormattedMessage id="object-menu.pin-object-button" defaultMessage="Pin" />
           )}
         </span>
-      </ObjectMenuButton>
+      </ObjectMenuButton>*/}
       {url && (
         <ObjectMenuButton as="a" href={url} target="_blank" rel="noopener noreferrer">
           <LinkIcon />
@@ -84,7 +84,7 @@ function ObjectMenuItems({ hubChannel, scene, activeObject, deselectObject, onGo
           </span>
         </ObjectMenuButton>
       )}
-      <ObjectMenuButton
+      {/*<ObjectMenuButton
         disabled={!canGoTo}
         onClick={() => {
           goToSelectedObject();
@@ -96,8 +96,8 @@ function ObjectMenuItems({ hubChannel, scene, activeObject, deselectObject, onGo
         <span>
           <FormattedMessage id="object-menu.view-object-button" defaultMessage="View" />
         </span>
-      </ObjectMenuButton>
-      <ObjectMenuButton
+      </ObjectMenuButton>*/}
+      {/*<ObjectMenuButton
         disabled={!canRemoveObject}
         onClick={() => {
           removeObject();
@@ -108,7 +108,7 @@ function ObjectMenuItems({ hubChannel, scene, activeObject, deselectObject, onGo
         <span>
           <FormattedMessage id="object-menu.delete-object-button" defaultMessage="Delete" />
         </span>
-      </ObjectMenuButton>
+      </ObjectMenuButton>*/}
     </>
   );
 }

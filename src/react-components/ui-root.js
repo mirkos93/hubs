@@ -1063,6 +1063,7 @@ class UIRoot extends Component {
     const streaming = this.state.isStreaming;
 
     const showObjectList = false;
+    //const showObjectList = !this.state.waitingOnAudio && !this.props.entryDisallowed && !isMobileVR;
 
     const streamer = getCurrentStreamer();
     const streamerName = streamer && streamer.displayName;
@@ -1070,15 +1071,17 @@ class UIRoot extends Component {
     const renderEntryFlow = (!enteredOrWatching && this.props.hub) || this.isWaitingForAutoExit();
 
     const canCreateRoom = !configs.feature("disable_room_creation") || configs.isAdmin;
-    const canCloseRoom = this.props.hubChannel && !!this.props.hubChannel.canOrWillIfCreator("close_hub");
-    const isModerator = this.props.hubChannel && this.props.hubChannel.canOrWillIfCreator("kick_users") && !isMobileVR;
+    //const canCloseRoom = this.props.hubChannel && !!this.props.hubChannel.canOrWillIfCreator("close_hub");
+    //const isModerator = this.props.hubChannel && this.props.hubChannel.canOrWillIfCreator("kick_users") && !isMobileVR;
 
     const moreMenu = [
       {
         id: "user",
         label:
-          "You" +
-          (this.state.signedIn ? ` (Signed in as: ${maskEmail(this.props.store.state.credentials.email)})` : ""),
+          "Tu" +
+          (this.state.signedIn
+            ? ` (Accesso eseguito come: ${maskEmail(this.props.store.state.credentials.email)})`
+            : ""),
         items: [
           this.state.signedIn
             ? {
@@ -1096,16 +1099,17 @@ class UIRoot extends Component {
                 icon: EnterIcon,
                 onClick: () => this.showContextualSignInDialog()
               },
-          canCreateRoom && {
-            id: "create-room",
-            label: <FormattedMessage id="more-menu.create-room" defaultMessage="Create Room" />,
-            icon: AddIcon,
-            onClick: () =>
-              this.showNonHistoriedDialog(LeaveRoomModal, {
-                destinationUrl: "/",
-                reason: LeaveReason.createRoom
-              })
-          },
+          this.state.signedIn &&
+            canCreateRoom && {
+              id: "create-room",
+              label: <FormattedMessage id="more-menu.create-room" defaultMessage="Create Room" />,
+              icon: AddIcon,
+              onClick: () =>
+                this.showNonHistoriedDialog(LeaveRoomModal, {
+                  destinationUrl: "/",
+                  reason: LeaveReason.createRoom
+                })
+            },
           {
             id: "user-profile",
             label: <FormattedMessage id="more-menu.profile" defaultMessage="Change Name & Avatar" />,
@@ -1119,7 +1123,7 @@ class UIRoot extends Component {
             onClick: () => this.setState({ showPrefs: true })
           }
         ].filter(item => item)
-      },
+      } /*
       {
         id: "room",
         label: <FormattedMessage id="more-menu.room" defaultMessage="Room" />,
@@ -1179,7 +1183,8 @@ class UIRoot extends Component {
               )
           }
         ].filter(item => item)
-      },
+      }*/,
+      ,
       {
         id: "support",
         label: <FormattedMessage id="more-menu.support" defaultMessage="Support" />,

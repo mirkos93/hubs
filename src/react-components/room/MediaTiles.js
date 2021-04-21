@@ -204,14 +204,6 @@ export function MediaTile({ entry, processThumbnailUrl, onClick, onEdit, onShowS
         </div>
       )}
       <div className={styles.tileActions}>
-        {entry.type === "avatar" && (
-          <TileAction
-            title={intl.formatMessage({ id: "media-tile.action.edit-avatar", defaultMessage: "Edit avatar" })}
-            onClick={onEdit}
-          >
-            <PenIcon />
-          </TileAction>
-        )}
         {entry.type === "scene" &&
           entry.project_id && (
             <TileAction

@@ -23,7 +23,7 @@ export const defaultMaterialQualitySetting = (function() {
     if (qsMobileDefault && MATERIAL_QUALITY_OPTIONS.indexOf(qsMobileDefault) !== -1) {
       return qsMobileDefault;
     }
-    return "low";
+    return "medium"; //low
   }
 
   const qsDefault = qsGet("default_material_quality");

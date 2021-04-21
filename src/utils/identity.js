@@ -2,34 +2,34 @@ import { fetchReticulumAuthenticated } from "./phoenix-utils";
 import defaultAvatar from "../assets/models/DefaultAvatar.glb";
 
 const names = [
-  "Ciacco",
   "Virgilio",
-  "Farinata degli Uberti",
-  "San Bonaventura",
-  "San Bernardo",
-  "Tommaso d'Aquino",
-  "Sordello",
   "Beatrice",
-  "Pietro",
-  "Giacomo il Maggiore",
+  "Boccaccio""
+  "Laura"
+  "Pasolini"
+  "Fellini"
+  "Pirandello"
+  "Quasimodo"
+  "Joice"
   "Dante",
-  "Marco Porcio Catone",
-  "Manfredi",
-  "Gueglielmo II",
   "Ulisse",
-  "Adamo",
-  "Anchise",
-  "Augusto",
-  "Lucano",
-  "Luna",
-  "Marte",
-  "Medusa",
-  "Minotauro",
-  "Caco",
-  "Camilla",
+  "Goethe"
+  "Shakespeare"
+  "Heminghway"
+  "Garcia Marquez"
+  "Proust"
+  "Eco"
+  "Montale"
+  "Dickens"
+  "Miller"
+  "Woolf"
+  "Orwell"
+  "Sepúlveda"
   "Omero",
   "Orazio",
   "Ovidio"
+  "Ungaretti"
+  "Merini"
 ];
 
 function chooseRandom(arr) {
